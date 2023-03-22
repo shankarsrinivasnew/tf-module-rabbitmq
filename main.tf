@@ -5,8 +5,9 @@ resource "aws_spot_instance_request" "rabbitmqr" {
   wait_for_fulfillment = true
 }
 
+
 resource "aws_ec2_tag" "spottags" {
   resource_id = aws_spot_instance_request.rabbitmqr.id
   key         = "Name"
-  value       = "${var-env}-rabbitmq"
+  value       = "${var.env}-rabbitmq"
 }
