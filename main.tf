@@ -3,10 +3,11 @@ resource "aws_spot_instance_request" "rabbitmqr" {
   instance_type        = var.instance_type
   subnet_id            = var.subnet_ids[0]
   wait_for_fulfillment = true
+}
 
-  tags = merge(
+resource "aws_ec2_tag" "spottags" {
+    tags = merge(
     var.tags,
     { Name = "${var.env}-rabbitmq" }
   )
 }
-
