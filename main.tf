@@ -6,8 +6,6 @@ resource "aws_spot_instance_request" "rabbitmqr" {
 }
 
 resource "aws_ec2_tag" "spottags" {
-    tags = merge(
-    var.tags,
-    { Name = "${var.env}-rabbitmq" }
-  )
+    resource_id = aws_spot_instance_request.rabbitmqr.id
+    Name = "${var.env}-rabbitmq"
 }
