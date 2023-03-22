@@ -7,6 +7,6 @@ resource "aws_spot_instance_request" "rabbitmqr" {
 
 resource "aws_ec2_tag" "spottags" {
   resource_id = aws_spot_instance_request.rabbitmqr.id
-  key = var.tags
-  value = var.tags
+  key = var.key
+  value = var.value
 }
