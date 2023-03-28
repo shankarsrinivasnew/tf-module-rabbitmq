@@ -18,7 +18,7 @@ resource "aws_spot_instance_request" "rabbitmqr" {
 resource "aws_ec2_tag" "name-tag" {
   resource_id = aws_spot_instance_request.rabbitmqr.spot_instance_id
   key = "Name"
-  value = ""
+  value = "rabbitmq-${var.env}"
   
 }
 resource "aws_security_group" "sgr" {
