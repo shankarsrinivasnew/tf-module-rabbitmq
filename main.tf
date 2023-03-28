@@ -35,7 +35,7 @@ resource "aws_security_group" "sgr" {
   }
 
   ingress {
-    description = "for bastionn ssh access"
+    description = "for bastionn ssh access for rabbitmq db ec2"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
