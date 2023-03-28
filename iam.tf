@@ -34,12 +34,7 @@ resource "aws_iam_policy" "ssm_policy" {
   })
 }
 
-resource "aws_ec2_tag" "name-tag" {
-  resource_id = aws_spot_instance_request.rabbitmqr.spot_instance_id
-  key = "Name"
-  value = ""
-  
-}
+
 
 resource "aws_iam_role" "ssm_role" {
   name = "${var.component}-${var.env}-role"
