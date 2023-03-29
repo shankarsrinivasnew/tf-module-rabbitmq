@@ -23,9 +23,6 @@ variable "dns_domain" {
 variable "vpc_id" {
 
 }
-variable "ssm_parameters" {
-
-}
 variable "component" {
   default = "rabbitmq"
 }
