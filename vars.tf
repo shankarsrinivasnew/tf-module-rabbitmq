@@ -23,6 +23,7 @@ variable "dns_domain" {
 variable "vpc_id" {
 
 }
+
 variable "component" {
   default = "rabbitmq"
 }
