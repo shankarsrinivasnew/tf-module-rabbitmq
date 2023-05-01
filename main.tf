@@ -3,6 +3,8 @@ resource "aws_spot_instance_request" "rabbitmqr" {
   instance_type          = var.instance_type
   subnet_id              = var.subnet_ids[0]
   wait_for_fulfillment   = true
+  instance_interruption_behavior = "stop"
+  spot_type = "persistent"
   vpc_security_group_ids = [aws_security_group.sgr.id]
   iam_instance_profile   = aws_iam_instance_profile.ssm_profile.name
   user_data = base64encode(templatefile("${path.module}/userdata.sh", {
